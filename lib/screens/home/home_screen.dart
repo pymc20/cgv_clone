@@ -1,3 +1,4 @@
+import 'package:cgv_clone/widgets/image_slider_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -6,6 +7,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> menuItems = ["홈", "이벤트", "무비톡", "패스트오더", "기프트샵", "@GCV"];
+    List<String> bannerUrlItems = [
+      "assets/images/banner_01.jpg",
+      "assets/images/banner_02.jpg",
+      "assets/images/banner_03.jpg",
+      "assets/images/banner_04.jpg"
+    ];
     return DefaultTabController(
       length: menuItems.length,
       child: Scaffold(
@@ -44,9 +51,11 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            Center(child: Text("home 화면 입니다")),
+            ListView(
+              children: [ImageSliderWidget(bannerUrlItems: bannerUrlItems)],
+            ),
             Center(child: Text("이벤트 화면 입니다")),
             Center(child: Text("무비톡 화면 입니다")),
             Center(child: Text("패스트오더 화면 입니다")),
