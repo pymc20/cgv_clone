@@ -1,4 +1,5 @@
 import 'package:cgv_clone/widgets/image_slider_widget.dart';
+import 'package:cgv_clone/widgets/movie_chart_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -46,6 +47,7 @@ class MyHomePage extends StatelessWidget {
                 labelColor: Colors.white,
                 indicatorColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.label,
+                dividerColor: Colors.transparent,
                 isScrollable: true,
               ),
             ),
@@ -54,7 +56,10 @@ class MyHomePage extends StatelessWidget {
         body: TabBarView(
           children: [
             ListView(
-              children: [ImageSliderWidget(bannerUrlItems: bannerUrlItems)],
+              children: [
+                ImageSliderWidget(bannerUrlItems: bannerUrlItems),
+                const MovieChartWidget()
+              ],
             ),
             Center(child: Text("이벤트 화면 입니다")),
             Center(child: Text("무비톡 화면 입니다")),
