@@ -1,4 +1,5 @@
 import 'package:cgv_clone/models/movies.dart';
+import 'package:cgv_clone/screens/movie/detail_screen.dart';
 import 'package:cgv_clone/widgets/build_rank_poster.dart';
 import 'package:flutter/material.dart';
 
@@ -39,8 +40,17 @@ class MovieChartWidget extends StatelessWidget {
             height: 280.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: List.generate(movieList.length,
-                  (index) => buildRankPoster(movieList[index])),
+              children: List.generate(
+                  movieList.length,
+                  (index) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailScreen(thisMovie: movieList[index])));
+                      },
+                      child: buildRankPoster(movieList[index]))),
             ),
           )
         ],
