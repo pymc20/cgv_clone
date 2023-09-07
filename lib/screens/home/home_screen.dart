@@ -1,3 +1,4 @@
+import 'package:cgv_clone/widgets/build_lable_icon.dart';
 import 'package:cgv_clone/widgets/image_slider_widget.dart';
 import 'package:cgv_clone/widgets/movie_chart_widget.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,22 @@ class MyHomePage extends StatelessWidget {
             ListView(
               children: [
                 ImageSliderWidget(bannerUrlItems: bannerUrlItems),
-                const MovieChartWidget()
+                const MovieChartWidget(),
+                const Divider(
+                  thickness: 8.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      buildLableIcon(Icons.phone_android, "MY CGV"),
+                      buildLableIcon(Icons.photo, "포토플레이"),
+                      buildLableIcon(Icons.account_balance, "할인정보"),
+                      buildLableIcon(Icons.music_note, "CGV스토어"),
+                    ],
+                  ),
+                ),
               ],
             ),
             Center(child: Text("이벤트 화면 입니다")),
